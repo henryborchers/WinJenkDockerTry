@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+    docker {
+      label 'windows'
+      image 'mcr.microsoft.com/powershell'
+    }
+  }
      stages {
         stage('Build') {
             steps{
