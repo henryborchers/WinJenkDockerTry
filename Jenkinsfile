@@ -8,6 +8,7 @@ pipeline {
      stages {
         stage('Build') {
             steps{
+                bat "dir"
                 bat "python setup.py build"
             }
             
