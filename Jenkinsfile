@@ -16,13 +16,14 @@ pipeline {
             steps{
                 bat "python setup.py bdist_wheel"
             }
+            post{
+                cleanup{
+                    cleanWs(patterns: [[pattern: 'dist', type: 'INCLUDE']])
+                }
+            }
 
         }
      }
-    post{
-        cleanup{
-            deleteDir()
-        }
-    }
+
 
 }
