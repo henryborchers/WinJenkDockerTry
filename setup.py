@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='hello',
-    version='',
+    version='0.1.0',
     packages=['hello'],
     url='',
     license='',
