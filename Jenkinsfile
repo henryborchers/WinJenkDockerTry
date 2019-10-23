@@ -9,6 +9,7 @@ pipeline {
         stage('Build') {
             steps{
                 bat "dir"
+                bat "python --version"
             }
             
         }
