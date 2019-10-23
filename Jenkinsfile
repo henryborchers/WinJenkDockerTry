@@ -5,7 +5,7 @@ pipeline {
 //        label 'windows'
 //      }
 //    }
-//    agent {
+    agent {
     docker {
       label 'windows'
       image 'winjenkdockertry'
