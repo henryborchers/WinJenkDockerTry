@@ -18,7 +18,7 @@ pipeline {
             }
             post{
                 cleanup{
-                    cleanWs(patterns: [[pattern: 'dist', type: 'INCLUDE']])
+                    cleanWs deleteDirs: true, patterns: [[pattern: 'dist', type: 'INCLUDE']]
                 }
             }
 
