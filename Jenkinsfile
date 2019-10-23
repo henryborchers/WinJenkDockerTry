@@ -11,6 +11,11 @@ pipeline {
             steps{
                 bat "python setup.py build"
             }
+            post{
+                cleanup{
+                    cleanWs deleteDirs: true
+                }
+            }
             
         }
         stage('Wheel') {
@@ -25,7 +30,8 @@ pipeline {
             }
             post{
                 cleanup{
-                    cleanWs deleteDirs: true, patterns: [[pattern: 'dist', type: 'INCLUDE']]
+                    cleanWs deleteDirs: true
+//                    cleanWs deleteDirs: true, patterns: [[pattern: 'dist', type: 'INCLUDE']]
                 }
             }
 
