@@ -24,11 +24,4 @@ pipeline {
 
         }
      }
-     post{
-        cleanup{
-            cleanWs deleteDirs: true, patterns: [[pattern: '.git', type: 'EXCLUDE']]
-        }
-    }
-
-
 }
