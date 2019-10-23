@@ -1,18 +1,25 @@
 pipeline {
-    agent {
-    docker {
-      label 'windows'
-      image 'python:latest'
-    }
-  }
+    agent any
      stages {
         stage('Build') {
+            agent {
+                docker {
+                  label 'windows'
+                  image 'python:latest'
+                }
+            }
             steps{
                 bat "python setup.py build"
             }
             
         }
         stage('Wheel') {
+            agent {
+                docker {
+                  label 'windows'
+                  image 'python:latest'
+                }
+            }
             steps{
                 bat "python setup.py bdist_wheel"
             }
