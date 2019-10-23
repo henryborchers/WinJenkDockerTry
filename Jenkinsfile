@@ -8,10 +8,15 @@ pipeline {
      stages {
         stage('Build') {
             steps{
-                bat "dir"
-                bat "python --version"
+                bat "python setup.py build"
             }
             
+        }
+        stage('Wheel') {
+            steps{
+                bat "python setup.py bdist_wheel"
+            }
+
         }
      }
 
