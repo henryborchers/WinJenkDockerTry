@@ -18,6 +18,11 @@ pipeline {
             }
 
         }
+        post{
+            cleanup{
+                deleteDir()
+            }
+        }
      }
 
 }
