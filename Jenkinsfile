@@ -8,7 +8,7 @@ pipeline {
     agent {
     docker {
       label 'windows'
-      image 'winjenkdockertry'
+      image 'python:latest'
     }
   }
      stages {
