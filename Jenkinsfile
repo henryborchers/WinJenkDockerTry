@@ -1,10 +1,4 @@
 pipeline {
-//    agent {
-//      dockerfile {
-//        filename 'Dockerfile'
-//        label 'windows'
-//      }
-//    }
     agent {
     docker {
       label 'windows'
