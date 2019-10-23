@@ -26,7 +26,7 @@ pipeline {
      }
      post{
         cleanup{
-            cleanWs()
+            cleanWs deleteDirs: true, patterns: [[pattern: '.git', type: 'EXCLUDE']]
         }
     }
 
