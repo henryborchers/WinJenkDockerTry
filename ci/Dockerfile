@@ -20,3 +20,4 @@ RUN C:\TEMP\vs_buildtools.exe --quiet --wait --norestart --nocache `
  || IF "%ERRORLEVEL%"=="3010" EXIT 0
 
 ADD ci/startup.cmd c:\temp\startup.cmd
+ENV AUTORUN=c:\temp\startup.cmd
