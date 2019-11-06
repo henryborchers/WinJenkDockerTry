@@ -1,10 +1,11 @@
 pipeline {
     agent {
-    docker {
-      label 'windows'
-      image 'python:latest'
+      dockerfile {
+        filename 'Dockerfile'
+        label 'windows'
+      }
     }
-  }
+
      stages {
         stage('Build') {
             steps{
