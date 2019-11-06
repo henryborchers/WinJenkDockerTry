@@ -14,6 +14,7 @@ pipeline {
             }
             
         }
+    }
 //        stage('Wheel') {
 //            steps{
 //                bat "python setup.py bdist_wheel"
