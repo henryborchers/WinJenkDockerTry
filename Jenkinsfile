@@ -1,7 +1,7 @@
 pipeline {
     agent {
       dockerfile {
-        filename 'Dockerfile'
+        filename 'ci/Dockerfile'
         label 'windows'
       }
     }
