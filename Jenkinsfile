@@ -5,6 +5,9 @@ pipeline {
         label 'windows'
       }
     }
+    options{
+        timeout(2)
+    }
 
      stages {
         stage('Build') {
