@@ -9,7 +9,7 @@ pipeline {
      stages {
         stage('Build') {
             steps{
-                bat "dir"
+                bat "dir c:\\"
 //                 bat "c:\\temp\\startup.cmd"
 //                bat "python setup.py build"
             }
