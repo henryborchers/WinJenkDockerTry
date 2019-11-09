@@ -1,4 +1,4 @@
-@echo off
+REM @echo off
 set TEST_VAR=something
 echo "hello world"
 REM type c:\BuildTools\Common7\Tools\VsDevCmd.bat
