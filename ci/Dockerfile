@@ -18,6 +18,9 @@ RUN C:\TEMP\vs_buildtools.exe --quiet --wait --norestart --nocache `
     --remove Microsoft.VisualStudio.Component.Windows10SDK.14393 `
     --remove Microsoft.VisualStudio.Component.Windows81SDK `
  || IF "%ERRORLEVEL%"=="3010" EXIT 0
-
 ADD ci/startup.cmd c:\temp\startup.cmd
-ENV AUTORUN=c:\temp\startup.cmd
+# TODO SET "HKLM\SOFTWARE\Microsoft\Command Processor" property "AutoRun" to value "c:\temp\startup.cmd"
+#ENV AUTORUN=c:\temp\startup.cmd
+SHELL ["powershell", "-Command"]
+
+RUN Set-ItemProperty -Path "HKLM\SOFTWARE\Microsoft\Command Processor" -Name AutoRun -Value ":\temp\startup.cmd"
