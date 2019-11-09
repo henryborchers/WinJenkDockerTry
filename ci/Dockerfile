@@ -23,4 +23,4 @@ ADD ci/startup.cmd c:\temp\startup.cmd
 #ENV AUTORUN=c:\temp\startup.cmd
 SHELL ["powershell", "-Command"]
 
-RUN Set-ItemProperty -Path "HKLM\SOFTWARE\Microsoft\Command Processor" -Name AutoRun -Value ":\temp\startup.cmd"
+RUN Set-ItemProperty -Path "HKLM\SOFTWARE\Microsoft\Command Processor" -Name AutoRun -Value "c:\temp\startup.cmd"
