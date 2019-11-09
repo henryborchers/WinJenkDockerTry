@@ -19,6 +19,7 @@ RUN C:\\TEMP\\vs_buildtools.exe --quiet --wait --norestart --nocache `
     --installChannelUri C:\\TEMP\\VisualStudio.chman `
     --add Microsoft.VisualStudio.Workload.VCTools `
     --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 `
+    --add Microsoft.VisualStudio.Component.Windows10SDK.18362 `
     --includeRecommended `
     --installPath C:\\BuildTools `
  || IF "%ERRORLEVEL%"=="3010" EXIT 0
