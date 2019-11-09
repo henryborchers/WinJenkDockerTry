@@ -24,6 +24,8 @@ ADD ci/startup.cmd c:\temp\startup.cmd
 # TODO SET "HKLM\SOFTWARE\Microsoft\Command Processor" property "AutoRun" to value "c:\temp\startup.cmd"
 #ENV AUTORUN=c:\temp\startup.cmd
 RUN REG ADD "HKLM\Software\Microsoft\Command Processor" /v AutoRun /t REG_SZ /d c:\temp\startup.cmd
+
+RUN dir
 #RUN REG ADD "HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor" /v AutoRun /t REG_SZ /d c:\temp\startup.cmd
 #SHELL ["powershell", "-Command"]
 
