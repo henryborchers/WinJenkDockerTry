@@ -42,10 +42,11 @@ pipeline {
 //
 //        }
 //     }
-//     post{
-//        cleanup{
+    post{
+       cleanup{
+            cleanWs()
 // THIS DOESN'T WORK IF GIT ISN'T INSTALLED
 //            bat "git clean -d -f"
-//        }
-//     }
+       }
+    }
 }
