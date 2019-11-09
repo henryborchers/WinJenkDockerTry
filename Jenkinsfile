@@ -10,6 +10,7 @@ pipeline {
         stage('Build') {
             steps{
                 bat "dir c:\\"
+                bat "whoami"
 //                 bat "c:\\temp\\startup.cmd"
 //                bat "python setup.py build"
             }
