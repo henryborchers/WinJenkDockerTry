@@ -14,16 +14,11 @@ ADD ${CHANNEL_URL} C:/TEMP/VisualStudio.chman
 ADD https://aka.ms/vs/16/release/vs_buildtools.exe C:\TEMP\vs_buildtools.exe
 
 # Install Build Tools excluding workloads and components with known issues.
-RUN C:\TEMP\vs_buildtools.exe --quiet --wait --norestart --nocache `
+RUN C:\\TEMP\\vs_buildtools.exe --quiet --wait --norestart --nocache `
     --channelUri C:\\TEMP\\VisualStudio.chman `
     --installChannelUri C:\\TEMP\\VisualStudio.chman `
     --add Microsoft.VisualStudio.Workload.VCTools `
-    --installPath C:\BuildTools `
-    --all `
-    --remove Microsoft.VisualStudio.Component.Windows10SDK.10240 `
-    --remove Microsoft.VisualStudio.Component.Windows10SDK.10586 `
-    --remove Microsoft.VisualStudio.Component.Windows10SDK.14393 `
-    --remove Microsoft.VisualStudio.Component.Windows81SDK `
+    --installPath C:\\BuildTools `
  || IF "%ERRORLEVEL%"=="3010" EXIT 0
 ADD ci/startup.cmd c:\temp\startup.cmd
 # TODO SET "HKLM\SOFTWARE\Microsoft\Command Processor" property "AutoRun" to value "c:\temp\startup.cmd"
