@@ -14,9 +14,9 @@ pipeline {
             steps{
 //                 bat "cl helloworld.cpp"
 //                 bat "helloworld.exe"
-                dir("build"){
-                    bat "C:\\BuildTools\\Common7\\Tools\\VsDevCmd.bat -arch=amd64 -host_arch=amd64 && cd %TEMP% && cmake ${WORKSPACE}"
-                }
+//                 dir("build"){
+//                     bat "C:\\BuildTools\\Common7\\Tools\\VsDevCmd.bat -arch=amd64 -host_arch=amd64 && cd %TEMP% && cmake ${WORKSPACE}"
+//                 }
 //                 bat "where cmake"
                 cmakeBuild buildDir: "${env.TEMP}", installation: 'InSearchPath', steps: [[withCmake: true]]
 //                 bat "c:\\temp\\startup.cmd"
