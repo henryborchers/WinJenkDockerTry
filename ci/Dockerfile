@@ -5,6 +5,7 @@ FROM mcr.microsoft.com/dotnet/framework/sdk:4.8-windowsservercore-ltsc2019
 
 # Restore the default Windows shell for correct batch processing.
 SHELL ["cmd", "/S", "/C"]
+ADD https://aka.ms/vscollect.exe C:/TEMP/collect.exe
 # Download channel for fixed install.
 ARG CHANNEL_URL=https://aka.ms/vs/16/release/channel
 ADD ${CHANNEL_URL} C:/TEMP/VisualStudio.chman
@@ -16,6 +17,7 @@ ADD https://aka.ms/vs/16/release/vs_buildtools.exe C:\TEMP\vs_buildtools.exe
 RUN C:\TEMP\vs_buildtools.exe --quiet --wait --norestart --nocache `
     --channelUri C:\\TEMP\\VisualStudio.chman `
     --installChannelUri C:\\TEMP\\VisualStudio.chman `
+    --add Microsoft.VisualStudio.Workload.VCTools `
     --installPath C:\BuildTools `
     --all `
     --remove Microsoft.VisualStudio.Component.Windows10SDK.10240 `
