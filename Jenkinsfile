@@ -14,6 +14,7 @@ pipeline {
             steps{
                 bat "dir c:\\"
                 bat "whoami"
+                bat "cl"
 //                 bat "c:\\temp\\startup.cmd"
 //                bat "python setup.py build"
             }
