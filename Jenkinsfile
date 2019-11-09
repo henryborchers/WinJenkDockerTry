@@ -12,9 +12,7 @@ pipeline {
      stages {
         stage('Build') {
             steps{
-                bat "dir c:\\"
-                bat "whoami"
-                bat "cl"
+                cmakeBuild buildDir: 'build', installation: 'InSearchPath', steps: [[withCmake: true]]
 //                 bat "c:\\temp\\startup.cmd"
 //                bat "python setup.py build"
             }
