@@ -12,6 +12,7 @@ pipeline {
      stages {
         stage('Build') {
             steps{
+                bat "cl helloworld.cpp"
                 dir("build"){
                     bat "cmake .."
                 }
