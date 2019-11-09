@@ -12,6 +12,7 @@ pipeline {
      stages {
         stage('Build') {
             steps{
+                bat "where cmake"
                 cmakeBuild buildDir: 'build', installation: 'InSearchPath', steps: [[withCmake: true]]
 //                 bat "c:\\temp\\startup.cmd"
 //                bat "python setup.py build"
