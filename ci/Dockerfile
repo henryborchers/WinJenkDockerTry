@@ -18,9 +18,10 @@ RUN C:\\TEMP\\vs_buildtools.exe --quiet --wait --norestart --nocache `
     --channelUri C:\\TEMP\\VisualStudio.chman `
     --installChannelUri C:\\TEMP\\VisualStudio.chman `
     --add Microsoft.VisualStudio.Workload.VCTools `
+    --includeRecommended `
     --installPath C:\\BuildTools `
  || IF "%ERRORLEVEL%"=="3010" EXIT 0
-RUN REG ADD "HKCU\Software\Microsoft\Command Processor" /v AutoRun /t REG_SZ /d c:\temp\startup.cmd
+RUN REG ADD "HKLM\Software\Microsoft\Command Processor" /v AutoRun /t REG_SZ /d c:\temp\startup.cmd
 ADD ci/startup.cmd c:\temp\startup.cmd
 # TODO SET "HKLM\SOFTWARE\Microsoft\Command Processor" property "AutoRun" to value "c:\temp\startup.cmd"
 #ENV AUTORUN=c:\temp\startup.cmd
