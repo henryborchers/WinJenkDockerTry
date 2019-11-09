@@ -44,7 +44,13 @@ pipeline {
 //     }
     post{
        cleanup{
-            cleanWs()
+            cleanWs(
+                deleteDirs: true,
+                patterns: [
+//                    [pattern: 'dist', type: 'INCLUDE'],
+                   [pattern: 'build', type: 'INCLUDE'],
+               ]
+            )
 // THIS DOESN'T WORK IF GIT ISN'T INSTALLED
 //            bat "git clean -d -f"
        }
