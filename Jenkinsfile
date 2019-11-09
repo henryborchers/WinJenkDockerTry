@@ -12,8 +12,8 @@ pipeline {
      stages {
         stage('Build') {
             steps{
-                bat "cl helloworld.cpp"
-                bat "helloworld.exe"
+//                 bat "cl helloworld.cpp"
+//                 bat "helloworld.exe"
                 dir("build"){
                     bat "C:\\BuildTools\\Common7\\Tools\\VsDevCmd.bat -arch=amd64 -host_arch=amd64 && cmake .."
                 }
