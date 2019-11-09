@@ -1,4 +1,5 @@
 @echo off
 set TEST_VAR=something
 echo "hello world"
-c:\BuildTools\Common7\Tools\vsdevcmd.bat
+dir c:\BuildTools\Common7\Tools
+REM c:\BuildTools\Common7\Tools\vsdevcmd.bat
