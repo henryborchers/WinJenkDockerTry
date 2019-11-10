@@ -18,7 +18,7 @@ pipeline {
 //                     bat "C:\\BuildTools\\Common7\\Tools\\VsDevCmd.bat -arch=amd64 -host_arch=amd64 && cd %TEMP% && cmake ${WORKSPACE}"
 //                 }
 //                 bat "where cmake"
-                cmakeBuild buildDir: "${env.TEMP}", installation: 'InSearchPath', steps: [[withCmake: true]]
+                cmakeBuild buildDir: "${env.TEMP}", generator: 'Ninja', installation: 'InSearchPath', steps: [[withCmake: true]]
 //                 bat "c:\\temp\\startup.cmd"
 //                bat "python setup.py build"
             }
