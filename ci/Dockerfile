@@ -32,8 +32,6 @@ RUN choco install -y git nsis`
     && del /S /F /Q %ChocolateyInstall% `
     && setx path "%path%;C:\Program Files (x86)\NSIS"
 
-RUN REG ADD "HKLM\Software\Microsoft\Command Processor" /v AutoRun /t REG_SZ /d c:\temp\startup.cmd
-ADD ci/startup.cmd c:\temp\startup.cmd
 SHELL ["powershell", "-command"]
 
 RUN $ErrorActionPreference = 'Stop'; `
@@ -43,3 +41,5 @@ RUN $ErrorActionPreference = 'Stop'; `
     $env:PATH = $env:PATH + ';C:\ninja\;C:\ninja'; `
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment\' -Name Path -Value $env:PATH
 
+RUN REG ADD "HKLM\Software\Microsoft\Command Processor" /v AutoRun /t REG_SZ /d c:\temp\startup.cmd
+ADD ci/startup.cmd c:\temp\startup.cmd
