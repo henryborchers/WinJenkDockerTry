@@ -37,6 +37,13 @@ RUN REG ADD "HKLM\Software\Microsoft\Command Processor" /v AutoRun /t REG_SZ /d 
 ADD ci/startup.cmd c:\temp\startup.cmd
 SHELL ["powershell", "-command"]
 #
+
+RUN Invoke-WebRequest 'https://github.com/git-for-windows/git/releases/download/v2.12.2.windows.2/MinGit-2.12.2.2-64-bit.zip' -OutFile MinGit.zip ;`
+    Expand-Archive c:\MinGit.zip -DestinationPath c:\MinGit; `
+    Remove-Item c:\ninja-win.zip -Force ;`
+    $env:PATH = $env:PATH + ';C:\MinGit\cmd\;C:\MinGit\cmd'; `
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment\' -Name Path -Value $env:PATH
+
 RUN $ErrorActionPreference = 'Stop'; `
     Invoke-WebRequest https://github.com/ninja-build/ninja/releases/download/v1.9.0/ninja-win.zip -OutFile c:\ninja-win.zip; `
     Expand-Archive -LiteralPath c:\ninja-win.zip -DestinationPath C:\ninja ; `
