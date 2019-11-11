@@ -28,7 +28,7 @@ RUN @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -I
     && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
 
 RUN choco install -y nsis`
-    && choco install -y cmake --installargs 'ADD_CMAKE_TO_PATH=System' `
+#    && choco install -y cmake --installargs 'ADD_CMAKE_TO_PATH=System' `
     && del /S /F /Q %ChocolateyInstall% `
     && setx path "%path%;C:\Program Files (x86)\NSIS"
 
@@ -42,6 +42,13 @@ RUN Invoke-WebRequest 'https://github.com/git-for-windows/git/releases/download/
     Expand-Archive c:\MinGit.zip -DestinationPath c:\MinGit; `
     Remove-Item c:\ninja-win.zip -Force ;`
     $env:PATH = $env:PATH + ';C:\MinGit\cmd\;C:\MinGit\cmd'; `
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment\' -Name Path -Value $env:PATH
+
+RUN $ErrorActionPreference = 'Stop'; `
+    Invoke-WebRequest https://github.com/Kitware/CMake/releases/download/v3.15.5/cmake-3.15.5-win64-x64.zip -OutFile c:\cmake-win.zip; `
+    Expand-Archive -LiteralPath c:\cmake-win.zip -DestinationPath C:\cmake ; `
+    Remove-Item c:\cmake-win.zip -Force ; `
+    $env:PATH = $env:PATH + ';C:\cmake\;C:\cmake'; `
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment\' -Name Path -Value $env:PATH
 
 RUN $ErrorActionPreference = 'Stop'; `
