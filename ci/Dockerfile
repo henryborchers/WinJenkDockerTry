@@ -48,7 +48,7 @@ RUN $ErrorActionPreference = 'Stop'; `
     Invoke-WebRequest https://github.com/Kitware/CMake/releases/download/v3.15.5/cmake-3.15.5-win64-x64.zip -OutFile c:\cmake-win.zip; `
     Expand-Archive -LiteralPath c:\cmake-win.zip -DestinationPath C:\cmake ; `
     Remove-Item c:\cmake-win.zip -Force ; `
-    $env:PATH = $env:PATH + ';C:\cmake\;C:\cmake'; `
+    $env:PATH = $env:PATH + ';C:\cmake\cmake-3.15.5-win64-x64\bin;C:\cmake'; `
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment\' -Name Path -Value $env:PATH
 
 RUN $ErrorActionPreference = 'Stop'; `
